@@ -55,7 +55,7 @@ public class GameTests
      /**
      * Task 2.1 b)
      */
-    /*@Test
+    @Test
     public void checkCharactersArray()
     {
        try {
@@ -73,13 +73,13 @@ public class GameTests
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Did you create a constructor for the Map class? Is the characters array public and of size 4? Did you create teh 2D array layot as specified? Check Task 2.1"+ ANSI_RESET+ e);
     }
       
-    }*/
+    }
     
    
  /**
      * Task 2.2 
      */
-    /*@Test
+    @Test
     public void checkLayoutInitialization()
     {
        try {
@@ -115,14 +115,14 @@ public class GameTests
     } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right with the layout variable. Are you populating teh empty fields with '.'? Check Task 2.2" + ANSI_RESET+ e);
     }
-    }*/
+    }
     
     
     /**
      * Task 2.3 
      */
    
-    /*@Test
+    @Test
     public void checkPlayerAndMonsterPosition()
     {
        try {
@@ -144,13 +144,13 @@ public class GameTests
     } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right with initialising players and monsters.  Check Task 2.4" + ANSI_RESET + e);
     }
-    }*/
+    }
    
     /**
      * Task 2.4 
      */
    
-    /*@Test
+    @Test
     public void checkPlayerAndMonsterPositionInLayout()
     {
        try {
@@ -189,14 +189,14 @@ public class GameTests
     } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right.  Check Task 2.5" + ANSI_RESET + e);
     }
-    }*/
+    }
     
     
   /**
      * Task 3.1 
      */
    
-    /*@Test
+    @Test
     public void checkRunGameMain() throws InterruptedException 
     {
        try {
@@ -237,19 +237,19 @@ public class GameTests
     } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right.  Check Task 3.1" + ANSI_RESET + e);
     }
-    }*/
-    
+    }
+
  /**
      * Task 3.2 
      */
    
-    /*@Test
-    public void checkRunGameMainWithUserInput() throws InterruptedException 
+    @Test
+    public void checkRunGameMainWithUserInput() throws InterruptedException
     {
        try {
-        String[] arg = {"10","15"};   
-        Thread t1=new Thread(){  
-        public void run(){  
+        String[] arg = {"10","15"};
+        Thread t1=new Thread(){
+        public void run(){
            ByteArrayInputStream in = new ByteArrayInputStream("up".getBytes());
            System.setIn(in);
           try{ RunGame.main (arg);}
@@ -257,46 +257,46 @@ public class GameTests
                 //do nothing
             }
            System.setIn(sysInBackup);
-            
-           
-        }  
+
+
+        }
         };
-        t1.start();  
-        
+        t1.start();
+
         Thread.currentThread().sleep(1000);
-           
+
         t1.stop();
-        String output = outContent.toString().trim(); 
+        String output = outContent.toString().trim();
         int count = 0;
         int countMonster = 0;
         int countPlayer = 0;
         for (int i = 0 ; i< output.length();i++ ) {
             if (output.charAt(i) == '.') {
-               count++; 
+               count++;
             }
             if (output.charAt(i) == '%') {
-               countMonster++; 
+               countMonster++;
             }
             if (output.charAt(i) == '*') {
-               countPlayer++; 
+               countPlayer++;
             }
         }
-          
-        
+
+
         assertTrue (output.contains("Round 1"));
-        
-            
+
+
     } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right.  Check Task 3.2" + ANSI_RESET + e);
     }
-    }*/
-    
+    }
+
   
     
      /**
      * Task 3.3
      */
-    /*@Test
+    @Test
     public void checkMoveCharacter()
     {
           class TestImplementation extends GameCharacter {
@@ -306,28 +306,28 @@ public class GameTests
               public int column = 0;
               public int row = 0;
            @Override
-           public void hurtCharacter  (GameCharacter character) {} 
+           public void hurtCharacter  (GameCharacter character) {}
            //it will always defend
            @Override
-           public boolean successfulDefense() {return true;} 
+           public boolean successfulDefense() {return true;}
        }
        try {
         Map map = new Map (3,4);
         TestImplementation character = new TestImplementation ("milan");
         GameLogic.moveCharacter(java.util.UUID.randomUUID().toString(), map, character);
-        String output = outContent.toString().trim(); 
+        String output = outContent.toString().trim();
         assertTrue(output.contains("Use only keywords up, down, left, right"));
-            
+
     } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right. moveCharacter method must print exactly this sentence when the use rinput is incorrect: 'Use only keywords up, down, left, right' Check Task 3.3"+ ANSI_RESET+ e);
     }
-      
-    }*/
+
+    }
     
     /**
      * Task 3.4 
      */
-    /*@Test
+    @Test
     public void checkMoveCharacterFull()
     {
           try {
@@ -400,12 +400,12 @@ public class GameTests
      } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right.  Check Task 3.4" + ANSI_RESET + e);
     }
-    }*/
+    }
     
     /**
      * Task 4.1 
      */
-    /*@Test
+    @Test
     public void checkMoveIntoWall()
     {
           try {
@@ -449,12 +449,12 @@ public class GameTests
      } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right.  Check Task 4.1" + ANSI_RESET + e);
     }
-    }*/
+    }
     
     /**
      * Task 4.3 
      */
-    /*@Test
+    @Test
     public void checkMoveOfPlayers()
     {
      try {   
@@ -491,12 +491,12 @@ public class GameTests
      } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right.  Check Task 4.3" + ANSI_RESET + e);
     }
-    }*/
+    }
     
     /**
      * Task 4.4 
      */
-    /*@Test
+    @Test
     public void checkMoveToOccupiedField()
     {
      try {   
@@ -516,13 +516,13 @@ public class GameTests
      } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right.    Check Task 4.4" + ANSI_RESET + e);
     }
-    }*/
+    }
     
     
     /**
      * Task 5.1 
      */
-    /*@Test
+    @Test
     public void checkHealthInformationPrinted()
     {
      try {   
@@ -546,12 +546,12 @@ public class GameTests
      } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right. Are you printing the health information    Check Task 5.1" + ANSI_RESET + e);
     }
-    }*/
+    }
     
     /**
      * Task 5.2
      */
-    /*@Test
+    @Test
     public void checkKillingMonster()
     {
      try {   
@@ -575,12 +575,12 @@ public class GameTests
      } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right. It seems that it is not possible to kill a monster...   Check Task 5.2" + ANSI_RESET + e);
     }
-    }*/
+    }
     
      /**
      * Task 5.3
      */
-    /*@Test
+    @Test
     public void checkKillingPlayer()
     {
      try {   
@@ -605,14 +605,14 @@ public class GameTests
      } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right. It seems that monster can't kill the player...   Check Task 5.3" + ANSI_RESET + e);
     }
-    }*/
+    }
     
    
     
     /**
      * Task 5.4
      */
-    /*@Test
+    @Test
     public void checkMarkingKilledMonster()
     {
      try {   
@@ -640,12 +640,12 @@ public class GameTests
      } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right. It seems that it is not possible to kill a monster...   Check Task 5.2" + ANSI_RESET + e);
     }
-    }*/
+    }
     
      /**
      * Task 5.5
      */
-    /*@Test
+    @Test
     public void checkEndGame()
     {
      try {  
@@ -683,6 +683,6 @@ public class GameTests
      } catch (Exception | Error e) {
         fail(ANSI_WHITE_BACKGROUND +ANSI_BLACK+ "Something is not right. It seems that it is not possible to win or lose the game.   Check Task 5.5" + ANSI_RESET + e);
     }
-    }*/
+    }
     
 }
