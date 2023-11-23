@@ -8,21 +8,25 @@ public class Monster extends GameCharacter {
 	}
 
 	public void hurtCharacter(GameCharacter character) {
+		// If defense fails, damage is done to the character
 		if (!character.successfulDefense()) {
 			character.setHealth(character.getHealth() - 20);
 		}
 	}
 
 	public boolean successfulDefense() {
+		// Randomly generate a Boolean value
 		Random random = new Random();
 		return random.nextBoolean();
 	}
 
 
-
+	// 随机移动
 	public String decideMove() {
 		Random random = new Random();
+		// Randomly generate an integer ranging from 0 to 3
 		int move = random.nextInt(4);
+		// Depending on the integer, return different movement directions
 		switch (move) {
 			case 0:
 				return "up";

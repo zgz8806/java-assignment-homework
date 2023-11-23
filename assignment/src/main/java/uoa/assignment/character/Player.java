@@ -8,6 +8,7 @@ public class Player extends GameCharacter {
 	}
 
 	public void hurtCharacter(GameCharacter character) {
+		// Check whether the defense is successful
 		if (!character.successfulDefense()) {
 			if (character.getHealth() <= 0) {
 				System.out.println("Character already dead");
@@ -19,6 +20,7 @@ public class Player extends GameCharacter {
 
 	public boolean successfulDefense() {
 		Random random = new Random();
+		// Return a random number between 0 and 1
 		return random.nextDouble() <= 0.3;
 	}
 

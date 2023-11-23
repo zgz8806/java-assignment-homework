@@ -9,6 +9,7 @@ import uoa.assignment.character.Monster;
 public class GameLogic {
 
 	public static void moveCharacter(String input, Map gameMap, GameCharacter character) {
+		// Move the character on the map according to the entered string
 		switch (input) {
 			case "up":
 				moveUp(character, gameMap);
@@ -31,21 +32,32 @@ public class GameLogic {
 
 
 	private static void moveRight(GameCharacter character, Map gameMap) {
+		// Gets the number of columns for the current role
 		int sizeX = character.column;
+		// Gets the number of lines for the current role
 		int sizeY = character.row;
+		// Check whether the number of columns of the current role is smaller than the number of columns on the map
 		if (sizeX + 1 < gameMap.layout[0].length) {
+			// Check whether the position to the right of the current role is empty
 			if (gameMap.layout[sizeY][sizeX + 1] != ".") {
+				// Check whether the position to the right of the current role is %
 				if (gameMap.layout[sizeY][sizeX] == "%") {
+					// Check whether the position on the right of the current role is *
 					if (gameMap.layout[sizeY][sizeX + 1] == "*") {
 						character.hurtCharacter(gameMap.characters[0]);
 					}else {
 						System.out.println("Monster already there so can't move");
 					}
 				}else {
+					// Traverse all characters in the map
 					for (int i = 1; i < gameMap.characters.length; i++) {
+						// Determine whether the position to the right of the current character is the same as the position of the character on the map
 						if (gameMap.characters[i].row == sizeY && gameMap.characters[i].column == sizeX + 1) {
+							// Damage the current character
 							character.hurtCharacter(gameMap.characters[i]);
+							// Check whether the current role's health is less than or equal to 0
 							if (gameMap.layout[gameMap.characters[i].row][gameMap.characters[i].column] != "x" && gameMap.characters[i].getHealth() <= 0) {
+								// Set the position of the current role to x
 								gameMap.layout[gameMap.characters[i].row][gameMap.characters[i].column] = "x";
 							}
 							break;
@@ -53,8 +65,11 @@ public class GameLogic {
 					}
 				}
 			} else {
+				// Set the left position of the current role to the right position
 				gameMap.layout[sizeY][sizeX + 1] = gameMap.layout[sizeY][sizeX];
+				// Set the left position of the current role to empty
 				gameMap.layout[sizeY][sizeX] = ".";
+				// Set the number of columns for the current role to the right
 				character.setColumn(sizeX + 1);
 			}
 		} else {

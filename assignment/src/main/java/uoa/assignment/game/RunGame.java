@@ -9,21 +9,28 @@ public class RunGame {
 	private static boolean gameOver = false;
 
 	public static void main(String[] args) {
-		int height = Integer.parseInt(args[0]); // 从命令行参数中获取地图高度
-		int width = Integer.parseInt(args[1]); // 从命令行参数中获取地图宽度
+		// Get the map height from the command line argument
+		int height = Integer.parseInt(args[0]);
+		// Get the map width from the command line argument
+		int width = Integer.parseInt(args[1]);
 
-		Game game = new Game(height, width); //// 创建一个新的 Game 对象，传入地图的高度和宽度
+		// Create a new Game object, passing in the height and width of the map
+		Game game = new Game(height, width);
 
-		int round = 1; // 初始化回合数
+		// Initialize the number of turns
+		int round = 1;
 
 		while (!gameOver) {
-			System.out.println("Round " + round); // 打印回合数到控制台
-			Scanner scanner = new Scanner(System.in); // 创建一个新的 Scanner 对象来接收用户输入
-			String input = scanner.nextLine(); // 读取用户输入
-			gameOver = game.nextRound(input); // 调用游戏对象的下一回合方法，并根据返回值更新游戏结束状态
-			round++; // 增加回合数
+			// Print the number of rounds to the console
+			System.out.println("Round " + round);
+			// Create a new Scanner object to receive user input
+			Scanner scanner = new Scanner(System.in);
+			String input = scanner.nextLine();
+			// Calls the game object's next turn method and updates the game end state based on the return value
+			gameOver = game.nextRound(input);
+			round++;
 
-			// 打印地图布局
+			// Print map layout
 			game.getMap().printLayout();
 
 		}
