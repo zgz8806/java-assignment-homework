@@ -21,7 +21,6 @@ public class Monster extends GameCharacter {
 	}
 
 
-	// 随机移动
 	public String decideMove() {
 		Random random = new Random();
 		// Randomly generate an integer ranging from 0 to 3
