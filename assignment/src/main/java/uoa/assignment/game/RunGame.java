@@ -31,7 +31,7 @@ public class RunGame {
 			round++;
 
 			// Print map layout
-			game.getMap().printLayout();
+			//game.getMap().printLayout();
 
 		}
 	}
